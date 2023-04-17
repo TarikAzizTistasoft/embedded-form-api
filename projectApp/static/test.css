@@ -1,0 +1,423 @@
+/* <style> */
+/* CSS styles */
+@page {
+      font-family: Pacifico;
+      margin: 20px;
+      @bottom-left {
+        color: #1ee494;
+        content: '♥ Thank you!';
+      }
+      @bottom-right {
+        color: #a9a;
+        content: 'contact@courtbouillon.org | courtbouillon.org';
+        font-size: 9pt;
+      }
+    }
+
+.pdf-page {
+  border: 3px solid rgb(13, 75, 7);
+font-family: 'Poppins', sans-serif;
+/* font-family: 'Roboto', sans-serif; */
+/* color: #363642; */
+/* letter-spacing:0px; */
+/* word-spacing: 5px; */
+position: relative;
+/* height: 1045px; */
+}
+.domain-name {
+font-family: 'Roboto', sans-serif;
+color: #363642;
+}
+.page-footer {
+position: absolute;
+bottom: 0px;
+}
+
+
+/* header css */
+.header-flex-container {
+padding-top: 30px;
+/* background-color: rgb(194, 214, 218); */
+/* border: 1px solid rgb(78, 78, 78); */
+/* text-align: center; */
+
+}
+.header-flex-container p {
+margin: 0px;
+padding: 0px;
+
+
+
+}
+.header-title {
+/* background-color: rgb(183, 224, 183); */
+/* border: 1px solid rgb(219, 65, 65); */
+}
+.header-logo {
+display: flex;
+ /* align-items: center; */
+justify-content: right;
+margin: 0;
+padding: 0;
+ /* border: 1px solid rgb(107, 38, 235); */
+}
+.logo-img {
+width: 250px;
+height: 140px;
+position: absolute;
+top: 0px;
+right: 0px;
+margin-right: -35px;
+/* border: 1px solid rgb(250, 47, 233); */
+}
+.column {
+float: left;
+padding: 10px; /* Should be removed. Only for demonstration */
+}
+
+.left {
+width: 60%;
+}
+
+.right {
+width: 40%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+content: "";
+display: table;
+clear: both;
+}
+
+
+
+/* flex box container */
+.flex-container {
+display: flex;
+background-color: rgb(255, 255, 255);
+/* border: 1px solid rgb(170, 190, 194); */
+}  
+.flex-container > div {
+width: 50%;
+background-color: #EEF0F5;
+margin: 5px;
+padding: 7px;
+padding-left: 12px;
+font-size: 30px;
+border-radius: 10px;
+/* border-left: 1px solid rgb(78, 78, 78); */
+}
+/* <div class="flex-container"> */
+  /* ${items.map((item) => `<div>${item}</div>`).join("")} */
+/* </div> */
+
+
+.lighthouse-result::before {
+content: attr(data-value); /* Use the value of the data-value attribute as the content */
+}
+.lighthouse-result[data-value^="1"]::before,
+.lighthouse-result[data-value^="1"] * {
+color: #ff0000;
+}
+.lighthouse-result[data-value^="2"]::before,
+.lighthouse-result[data-value^="2"] * {
+color: #ff9e00;
+}
+.lighthouse-result[data-value^="3"]::before,
+.lighthouse-result[data-value^="3"] * {
+color: #ffd100;
+}
+.lighthouse-result[data-value^="4"]::before,
+.lighthouse-result[data-value^="4"] * {
+color: #ffc100;
+}
+.lighthouse-result[data-value^="5"]::before,
+.lighthouse-result[data-value^="5"] * {
+color: #ffb400;
+}
+.lighthouse-result[data-value^="6"]::before,
+.lighthouse-result[data-value^="6"] * {
+color: #ffa500;
+}
+.lighthouse-result[data-value^="7"]::before,
+.lighthouse-result[data-value^="7"] * {
+color: #bc9b00;
+}
+.lighthouse-result[data-value^="8"]::before,
+.lighthouse-result[data-value^="8"] * {
+color: #719000;
+}
+.lighthouse-result[data-value^="9"]::before, 
+.lighthouse-result[data-value^="9"] * {
+color: #008000;
+}
+
+.lighthouse-result[data-value="4"]::before,
+.lighthouse-result[data-value="4"] * {
+color: #ff0000;
+}
+.lighthouse-result[data-value="5"]::before,
+.lighthouse-result[data-value="5"] * {
+color: #ff0000;
+}
+.lighthouse-result[data-value="6"]::before,
+.lighthouse-result[data-value="6"] * {
+color: #ff0000;
+}
+.lighthouse-result[data-value="7"]::before,
+.lighthouse-result[data-value="7"] * {
+color: #ff0000;
+}
+.lighthouse-result[data-value="8"]::before,
+.lighthouse-result[data-value="8"] * {
+color: #ff0000;
+}
+.lighthouse-result[data-value="9"]::before,
+.lighthouse-result[data-value="9"] * {
+color: #ff0000;
+}
+.lighthouse-result[data-value="0"]::before,
+.lighthouse-result[data-value="0"] * {
+color: #ff0000;
+}
+.lighthouse-result[data-value="100"]::before,
+.lighthouse-result[data-value="100"] * {
+color: #008000;
+}
+
+
+
+/* css for crawl data box start */
+.parent {
+column-count: 2;
+column-gap: 10px;
+width: 100%;
+/* border: 1px solid rgb(54, 53, 53); */
+box-sizing: border-box;
+/* padding: 10px; */
+margin-bottom: 10px;
+}
+.parent .child:first-child {
+padding-top: 0px;
+}
+.child {
+box-sizing: border-box;
+padding-bottom: 10px;
+/* border: 1px solid rgb(226, 225, 225); */
+/* border-radius: 10px; */
+/* text-align: center; */
+/* margin-bottom: 5px; */
+/* margin-top: 5px; */
+/* display: inline-block; */
+width: 100%;
+/* box-shadow: 2px 2px 6px 1px rgb(247, 247, 247); */
+/* background-color: rgb(247, 247, 247); */
+
+}
+.child h4{
+text-transform: uppercase;
+font-size: 14px;
+letter-spacing: 1px;
+color: #161718;
+padding-top: 10px;
+padding-left: 10px;
+padding-bottom: 5px;
+margin: 0;
+border-bottom: 1px solid rgb(247, 247, 247);
+border-top: 1px solid rgb(226, 225, 225);
+border-left: 1px solid rgb(226, 225, 225);
+border-right: 1px solid rgb(226, 225, 225);
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+/* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+/* background-color: rgb(247, 247, 247); */
+}
+.child:nth-child(odd) {
+clear: both;
+}
+.child h6{
+display: flex;
+justify-content: space-between;
+align-items: center;
+font-size: 12px;
+font-weight: 200;
+word-spacing: normal;
+padding: 5px 10px;
+margin: 0;
+border-left: 1px solid rgb(226, 225, 225);
+border-right: 1px solid rgb(226, 225, 225);
+}
+.child h6:first-child {
+padding-top: 5px;
+}
+.child h6:last-child {
+border-bottom: 1px solid rgb(226, 225, 225);
+border-bottom-left-radius: 10px;
+border-bottom-right-radius: 10px;
+padding-bottom: 5px;
+}
+.child h6:nth-child(odd) {
+background-color: #fafafa;
+}
+
+.image-warning {
+height: 12px;
+width: 12px;
+margin-right: 3px;
+}
+.image-information {
+height: 12px;
+width: 12px;
+margin-right: 3px;
+}
+.image-error {
+height: 12px;
+width: 12px;
+margin-right: 3px;
+} 
+
+.pdf-badge {
+display: inline-block;
+font-size: 12px;
+font-weight: 500;
+line-height: 1;
+text-align: center;
+white-space: nowrap;
+vertical-align: middle;
+border-radius: 10rem;
+padding: 0.15rem 0.6rem;
+/* padding-bottom: 0.1rem; */
+color: #0f0f0f;
+}
+
+.pdf-badge-secondary {
+background-color: #f3f3f3;
+/* border: 0.5px solid #6c757d; */
+}
+
+.pdf-rounded-pill {
+border-radius: 50rem;
+}
+/* css for crawl data box end */
+
+/* css for seoAudit data start */
+.page-content .category {
+display: flex;
+/* ustify-content: space-around; */
+
+.category-item {
+  align-self: baseline
+}
+.card-title {
+  font-size: 1.125rem;
+  /* text-transform: uppercase; */
+  letter-spacing: 1px;
+}
+.graph {
+  height: 60px;
+  width: 60px;
+}
+}
+
+.CircularProgressbar .CircularProgressbar-text {
+font-size: 2rem!important;
+font-weight: 600;
+}
+
+.seo-audit {
+margin: 0px;
+padding: 0px;
+left: 0px;
+.speed {
+  background-color: #fff;
+  margin: 0;
+  border: 1px solid rgb(243, 243, 243);
+  .speed-data {
+      display: flex;
+      justify-content: space-between;
+      margin: 0.5rem;
+  }
+}
+
+.speed-boxex {
+  display: flex;
+  width: 100%;
+  border: 1px solid rgb(226, 225, 225);
+  .speed-box {
+      height: 3rem;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+
+  }
+  .excellent {
+      background-color: turquoise;
+      flex: 3 3 0px;
+  }
+  .good {
+      background-color: rgba(orange, .6);
+      flex: 2 2 0px;
+  }
+  .fair {
+      background-color: rgba(LightSalmon, .9);
+      flex: 3 3 0px;
+  }
+  .poor {
+      background-color: rgba(red, 0.5);
+      flex: 7 7 0px;
+      align-items: center;
+  }
+}
+
+.speed-marker-boxex {
+  display: flex;
+  width: 100%;
+  .speed-box {
+      flex: 1 1 0px;
+      height: .17rem;
+  } 
+}
+
+.speed-text-boxex {
+  display: flex;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  .speed-box {
+      flex: 1 1 0px;
+      height: 0.5rem;
+      text-align: center;
+  } 
+  .speed-marker-text-box {
+      flex-grow: 3!important;
+      word-wrap: normal;
+  }
+  .speed-marker-text {
+      /* text-transform: uppercase; */
+      font-size: 13px;
+  }  
+
+}
+
+.speed-marker {
+  text-align: right;
+  &::after{
+      content: "";
+      margin: 2px 0px -2px;
+      width: 0px;
+      border-width: 10px 6px 6px;
+      border-style: solid;
+      border-color: rgb(38, 40, 45) transparent transparent;
+      border-image: initial;
+  }
+}
+}
+/* css for seoAudit data end */
+
+.percentage-box p {
+margin: 0;
+padding: 0;
+}
+/* </style> */

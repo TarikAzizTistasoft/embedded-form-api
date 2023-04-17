@@ -42,9 +42,13 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django_browser_reload",
+    # "corsheaders",
+    "projectApp",
+    # 'puppeteer_pdf',
 ]
 
 MIDDLEWARE = [
+    # "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -53,6 +57,14 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django_browser_reload.middleware.BrowserReloadMiddleware",
+]
+
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost:3000",
+    "https://www.tistasoft.com",
+    "http://www.tistasoft.com",
+    "http://app.tistasoft.com",
+    "https://lifewithlg.com"
 ]
 
 X_FRAME_OPTIONS = "ALLOW-FROM preview.app.github.dev"

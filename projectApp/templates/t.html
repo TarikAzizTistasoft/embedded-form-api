@@ -1,0 +1,31 @@
+<div class="pdf-page">
+    <div class="row header-flex-container">
+      <div class="column left header-title">
+        <p style="font-size: 30px; margin-top: -15px; "><span style="color: #FF8A00; font-weight: bold; padding-right: 20px;">FREE</span><span>Technical</span><span style="font-weight: bold; padding-right: 5px; color: #29A744;">Audit</span><span>for</span>
+        <p style="font-size: 16px; letter-spacing: 1px; font-weight: 200;"><span class="domain-name" style="background-color: #F6F6F6; border-radius: 25px; padding: 5px 20px; padding-bottom: 7px; text-align: center">{{content}}</span></p>
+      </div>
+      <div class="column right header-logo">
+        <img class="logo-img" src="https://blogoutreach.com.au/wp-content/uploads/2022/10/header-logo-hover.jpg" />
+      </div>
+    </div>
+</div>
+<h1>Welcome to My Page</h1>
+<p>This is some sample text for my page. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.</p>
+<!-- <img src="https://ik.imgkit.net/ikmedia/website-assets/customer-logo/Weltbild_35UAV1_zCJ.png?tr=w-120,dpr-2" />
+
+<img src="https://tistasoft.com/wp-content/uploads/2022/02/header-logo.png" />
+<img src="{% static 'Octocat.png' %}" alt="logo" /> -->
+<img src="{% static 'octocat.png' %}" class="App-logo" alt="logo" />
+<img src="https://blogoutreach.com.au/wp-content/uploads/2022/10/header-logo-hover.jpg" />
+<p>{{data.count.image_alt_missing}}</p>
+
+<div class="parent">
+<div class="child"></div>
+{% if data.title_short %}
+<h6>
+<span><img class="image-warning" src="{{ imgWarning }}" />
+Title too short</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{ data.count.title_short }}</span>
+</h6>
+{% endif %}
+</div>
+</div>

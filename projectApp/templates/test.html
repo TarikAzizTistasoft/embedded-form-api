@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>My Page</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  {% load static %}
+  <!-- <link rel="stylesheet" href="{% static 'test.css' %}"> -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap');
+    /* CSS styles */
+    @page {
+          /* font-family: Pacifico; */
+          font-family: 'Poppins', sans-serif;
+          margin-top: 20px;
+          margin-left: 20px;
+          margin-right: 20px;
+          margin-bottom: 20px;
+          /* @bottom-left {
+            color: #1ee494;
+            content: '♥ Thank you!';
+          }
+          @bottom-right {
+            color: #a9a;
+            content: 'contact@courtbouillon.org | courtbouillon.org';
+            font-size: 9pt;
+          } */
+        }
+    
+        .pdf-page {
+  font-family: "Poppins", sans-serif;
+  position: relative;
+  height: 1045px;
+}
+
+.domain-name {
+  font-family: "Roboto", sans-serif;
+  color: #363642;
+}
+
+.page-footer {
+  position: absolute;
+  bottom: 0px;
+}
+
+.header-flex-container {
+  padding-top: 20px;
+}
+
+.header-flex-container p {
+  margin: 0px;
+  padding: 0px;
+}
+
+.header-logo {
+  text-align: end;
+  /* display: flex; */
+  /* justify-content: right; */
+  margin: 0;
+  padding: 0;
+  /* border: 2px solid red; */
+}
+
+.logo-img {
+  width: 250px;
+  height: 140px;
+  /* position: absolute; */
+  top: 0px;
+  right: 0px;
+  margin-top: -48px;
+  margin-right: -28px;
+}
+
+.column {
+  float: left;
+  /* Should be removed. Only for demonstration */
+  /* padding: 10px;  */
+}
+
+.left {
+  width: 60%;
+}
+
+.right {
+  width: 40%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.flex-container {
+  display: flex;
+  background-color: rgb(255, 255, 255);
+}
+
+.flex-container > div {
+  width: 50%;
+  background-color: #EEF0F5;
+  margin: 5px;
+  padding: 7px;
+  padding-left: 12px;
+  font-size: 30px;
+  border-radius: 10px;
+}
+
+.lighthouse-result::before {
+  content: attr(data-value); /* Use the value of the data-value attribute as the content */
+}
+
+.lighthouse-result[data-value^="1"]::before,
+.lighthouse-result[data-value^="1"] * {
+  color: #ff0000;
+}
+
+.lighthouse-result[data-value^="2"]::before,
+.lighthouse-result[data-value^="2"] * {
+  color: #ff9e00;
+}
+
+.lighthouse-result[data-value^="3"]::before,
+.lighthouse-result[data-value^="3"] * {
+  color: #ffd100;
+}
+
+.lighthouse-result[data-value^="4"]::before,
+.lighthouse-result[data-value^="4"] * {
+  color: #ffc100;
+}
+
+.lighthouse-result[data-value^="5"]::before,
+.lighthouse-result[data-value^="5"] * {
+  color: #ffb400;
+}
+
+.lighthouse-result[data-value^="6"]::before,
+.lighthouse-result[data-value^="6"] * {
+  color: #ffa500;
+}
+
+.lighthouse-result[data-value^="7"]::before,
+.lighthouse-result[data-value^="7"] * {
+  color: #bc9b00;
+}
+
+.lighthouse-result[data-value^="8"]::before,
+.lighthouse-result[data-value^="8"] * {
+  color: #719000;
+}
+
+.lighthouse-result[data-value^="9"]::before,
+.lighthouse-result[data-value^="9"] * {
+  color: #008000;
+}
+
+.lighthouse-result[data-value="4"]::before,
+.lighthouse-result[data-value="4"] * {
+  color: #ff0000;
+}
+
+.lighthouse-result[data-value="5"]::before,
+.lighthouse-result[data-value="5"] * {
+  color: #ff0000;
+}
+
+.lighthouse-result[data-value="6"]::before,
+.lighthouse-result[data-value="6"] * {
+  color: #ff0000;
+}
+
+.lighthouse-result[data-value="7"]::before,
+.lighthouse-result[data-value="7"] * {
+  color: #ff0000;
+}
+
+.lighthouse-result[data-value="8"]::before,
+.lighthouse-result[data-value="8"] * {
+  color: #ff0000;
+}
+
+.lighthouse-result[data-value="9"]::before,
+.lighthouse-result[data-value="9"] * {
+  color: #ff0000;
+}
+
+.lighthouse-result[data-value="0"]::before,
+.lighthouse-result[data-value="0"] * {
+  color: #ff0000;
+}
+
+.lighthouse-result[data-value="100"]::before,
+.lighthouse-result[data-value="100"] * {
+  color: #008000;
+}
+
+.parent {
+  /* display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px; */
+  /* display: flex;
+  flex-wrap: wrap; */
+  column-count: 2;
+  column-gap: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+.parent .child:first-child {
+  padding-top: 0px;
+}
+
+.child {
+  box-sizing: border-box;
+  padding-bottom: 10px;
+  width: 100%;
+}
+
+.child h4 {
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: #161718;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-bottom: 5px;
+  margin: 0;
+  border-bottom: 1px solid rgb(247, 247, 247);
+  border-top: 1px solid rgb(226, 225, 225);
+  border-left: 1px solid rgb(226, 225, 225);
+  border-right: 1px solid rgb(226, 225, 225);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.child:nth-child(odd) {
+  clear: both;
+}
+
+.child h6 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 200;
+  word-spacing: normal;
+  padding: 5px 10px;
+  margin: 0;
+  border-left: 1px solid rgb(226, 225, 225);
+  border-right: 1px solid rgb(226, 225, 225);
+}
+
+.child h6:first-child {
+  padding-top: 5px;
+}
+
+.child h6:last-child {
+  border-bottom: 1px solid rgb(226, 225, 225);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding-bottom: 5px;
+}
+
+.child h6:nth-child(odd) {
+  background-color: #fafafa;
+}
+
+.image-warning {
+  height: 12px;
+  width: 12px;
+  margin-right: 3px;
+}
+
+.image-information {
+  height: 12px;
+  width: 12px;
+  margin-right: 3px;
+}
+
+.image-error {
+  height: 12px;
+  width: 12px;
+  margin-right: 3px;
+}
+
+.pdf-badge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  border-radius: 10rem;
+  padding: 0.15rem 0.6rem;
+  color: #0f0f0f;
+}
+
+.pdf-badge-secondary {
+  background-color: #f3f3f3;
+}
+
+.pdf-rounded-pill {
+  border-radius: 50rem;
+}
+
+.page-content .category {
+  display: flex;
+}
+.page-content .category .category-item {
+  align-self: baseline;
+}
+.page-content .category .card-title {
+  font-size: 1.125rem;
+  letter-spacing: 1px;
+}
+.page-content .category .graph {
+  height: 60px;
+  width: 60px;
+}
+
+.CircularProgressbar .CircularProgressbar-text {
+  font-size: 2rem !important;
+  font-weight: 600;
+}
+
+.seo-audit {
+  margin: 0px;
+  padding: 0px;
+  left: 0px;
+}
+.seo-audit .speed {
+  background-color: #fff;
+  margin: 0;
+  border: 1px solid rgb(243, 243, 243);
+}
+.seo-audit .speed .speed-data {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem;
+}
+.seo-audit .speed-boxex {
+  display: flex;
+  width: 100%;
+  border: 1px solid rgb(226, 225, 225);
+}
+.seo-audit .speed-boxex .speed-box {
+  height: 3rem;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.seo-audit .speed-boxex .excellent {
+  background-color: turquoise;
+  flex: 3 3 0px;
+}
+.seo-audit .speed-boxex .good {
+  background-color: rgba(255, 165, 0, 0.6);
+  flex: 2 2 0px;
+}
+.seo-audit .speed-boxex .fair {
+  background-color: rgba(255, 160, 122, 0.9);
+  flex: 3 3 0px;
+}
+.seo-audit .speed-boxex .poor {
+  background-color: rgba(255, 0, 0, 0.5);
+  flex: 7 7 0px;
+  align-items: center;
+}
+.seo-audit .speed-marker-boxex {
+  display: flex;
+  width: 100%;
+}
+.seo-audit .speed-marker-boxex .speed-box {
+  flex: 1 1 0px;
+  height: 0.17rem;
+}
+.seo-audit .speed-text-boxex {
+  display: flex;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+.seo-audit .speed-text-boxex .speed-box {
+  flex: 1 1 0px;
+  height: 0.5rem;
+  text-align: center;
+}
+.seo-audit .speed-text-boxex .speed-marker-text-box {
+  flex-grow: 3 !important;
+  word-wrap: normal;
+}
+.seo-audit .speed-text-boxex .speed-marker-text {
+  font-size: 13px;
+}
+.seo-audit .speed-marker {
+  text-align: right;
+}
+.seo-audit .speed-marker::after {
+  content: "";
+  margin: 2px 0px -2px;
+  width: 0px;
+  border-width: 10px 6px 6px;
+  border-style: solid;
+  border-color: rgb(38, 40, 45) transparent transparent;
+  border-image: initial;
+}
+
+.percentage-box p {
+  margin: 0;
+  padding: 0;
+}
+
+/*# sourceMappingURL=PDFFile.css.map */
+
+    </style>
+
+</head>
+<body>
+
+  
+  <div class="pdf-page">
+    <div class="row header-flex-container">
+      <div class="column left header-title">
+        <p style="font-size: 30px; margin-top: -15px; "><span style="color: #FF8A00; font-weight: bold; padding-right: 10px;">FREE</span><span style="padding-right: 10px;">Technical</span><span style="font-weight: bold; padding-right: 10px; color: #29A744;">Audit</span><span>for</span>
+        <p style="font-size: 16px; letter-spacing: 1px; font-weight: 200;"><span class="domain-name" style="background-color: #F6F6F6; border-radius: 25px; padding: 5px 20px; padding-bottom: 7px; text-align: center">{{domain}}</span></p>
+      </div>
+      <div class="column right header-logo">
+        <img class="logo-img" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/logo-with-back.png" />
+      </div>
+    </div>
+    <!-- <img class="logo-img" src="../static/logo.png" /> -->
+    <div style="margin-bottom: 10px; border-left: 3px solid #FF8A00; ">
+      <p style="font-size: 13px; padding-left: 10px;">Our proprietary technical audit tool crawled and came out with in-depth analysis of the website. A poor score indicates opportunity to improve organic performance of <span class="domain-name">{{domain}}</span>.</p>
+      <p style="font-size: 13px; padding-left: 10px;">The following section presents performance scores on different performance areas.</p>
+    </div>
+    <!-- <img src="https://ik.imgkit.net/ikmedia/website-assets/customer-logo/Weltbild_35UAV1_zCJ.png?tr=w-120,dpr-2" /> -->
+    
+    <div class="seo-audit">
+      <div class="speed-marker-boxex">
+        {% for index in list %}
+            <div class="speed-box" key={{ index }}>
+                {% if timeMarkerInSecond == index %}
+                    <div class="speed-marker"></div>
+                {% else %}
+                    {% if index > 14 %}
+                        <!-- <div class="speed-marker"></div> -->
+                    {% endif %}
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+    
+
+    <div class="speed-boxex">
+      <div class="speed-box excellent">
+          <div>
+              3s
+          </div>
+          <div>
+              Excellent
+          </div>
+      </div>
+      <div class="speed-box good">
+          <div>
+              5s
+          </div>
+          <div>
+              Good
+          </div>
+      </div>
+      <div class="speed-box fair">
+          <div>
+              8s
+          </div>
+          <div>
+              Fair
+          </div>
+      </div>
+      <div class="speed-box poor">
+          <div>
+              Poor
+          </div>
+      </div>
+    </div>
+
+    <script>
+        const getDisplayValue = (items, item) => {
+          if (_.has(items, `${item}.displayValue`)) { 
+              return items[item].displayValue; 
+          }
+      
+          return '';
+        }
+    </script>
+    
+
+    </div>
+    <div style="border-left: 3px solid #FF8A00; margin-top: 10px;">
+      <p style="font-size: 13px; padding-left: 10px;">The following section presents summary of technical audit findings on most critical aspects of the website. The detailed actionable data are available in separate MS excel file <span class="domain-name">{{domain}}</span>.xlsx.</p>
+    </div>
+    <div class="parent">
+      {% if data.pages_404 or data.pages_4xx or data.pages_500 or data.pages_5xx or data.timed_out or data.HTTPS_HTTP_mixed_content %}
+      <div class="child">
+      <h4>Internal Pages</h4>
+        {% if data.pages_404 %} 
+          <h6>
+          <span><img class="image-error" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/error.png" />
+          404 page</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.pages_404}}</span>
+          </h6>
+        {% endif %}
+      
+        {% if data.pages_4xx %} 
+            <h6>
+            <span><img class="image-error" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/error.png" />
+            4XX page</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.pages_404}}</span>
+            </h6>
+          {% endif %}
+          
+        {% if data.pages_500 %}
+            <h6>
+            <span><img class="image-error" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/error.png" />
+            500 page</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.pages_4xx}}</span>
+            </h6>
+          {% endif %}
+          
+        {% if data.pages_5xx %}
+            <h6>
+            <span><img class="image-error" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/error.png" />
+            5XX page</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.pages_5xx}}</span>
+            </h6>
+          {% endif %}
+        
+        {% if data.timed_out %}
+            <h6>
+            <span><img class="image-error" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/error.png" />
+            Timed out</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.timed_out}}</span>
+            </h6>
+          {% endif %}
+        
+        {% if data.HTTPS_HTTP_mixed_content %}
+            <h6>
+              <span><img class="image-warning" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/warning.png" />
+              HTTPS&nbsp;&nbsp;/HTTP&nbsp;&nbsp; mixed content</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.HTTPS_HTTP_mixed_content}}</span>
+            </h6>
+          {% endif %}
+    </div>
+    {% endif %}
+
+    {% if data.multi_meta_desc_tags or data.multi_title_tags or data.title_missing or data.h1_missing or data.meta_desc_missing or data.meta_desc_long or data.meta_desc_short or data.title_long or data.title_short or data.multi_h1_tags %}
+    <div class="child">
+      <h4>Content</h4>
+      {% if data.multi_meta_desc_tags %}
+        <h6>
+        <span><img class="image-error" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/error.png" />
+        Multiple Meta Description tags</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.multi_meta_desc_tags}}</span>
+        </h6>
+      {% endif %}
+    
+      {% if data.multi_title_tags %}
+          <h6>
+          <span><img class="image-error" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/error.png" />
+          Multiple title tags</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.multi_title_tags}}</span>
+          </h6>
+      {% endif %}
+
+      {% if data.title_missing %}
+            <h6>
+            <span><img class="image-error" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/error.png" />
+            Title tag missing or empty</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.title_missing}}</span>
+            </h6>
+      {% endif %}
+    
+      {% if data.h1_missing %}
+          <h6>
+          <span><img class="image-warning" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/warning.png" />
+          H1&nbsp;&nbsp; tag missing or empty</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.h1_missing}}</span>
+          </h6>
+      {% endif %}
+      {% if data.meta_desc_missing %}
+            <h6>
+            <span><img class="image-warning" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/warning.png" />
+            Meta description tag missing or empty</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.meta_desc_missing}}</span>
+            </h6>
+      {% endif %}
+    
+      {% if data.meta_desc_long %}
+          <h6>
+          <span><img class="image-warning" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/warning.png" />
+          Meta description too long</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.meta_desc_long}}</span>
+          </h6>
+      {% endif %}
+
+      {% if data.meta_desc_short %}
+            <h6>
+            <span><img class="image-warning" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/warning.png" />
+            Meta description too short</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.meta_desc_short}}</span>
+            </h6>
+      {% endif %}
+    
+      {% if data.title_long %}
+            <h6>
+            <span><img class="image-warning" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/warning.png" />
+            Title too long</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.title_long}}</span>
+            </h6>
+          {% endif %}
+    
+      {% if data.title_short %}
+            <h6>
+            <span><img class="image-warning" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/warning.png" />
+            Title too short</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.title_short}}</span>
+            </h6>
+      {% endif %}
+    
+      {% if data.multi_h1_tags %}
+          <h6>
+          <span><img class="image-information" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/information.png" />
+          Multiple H1&nbsp;&nbsp; tags</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.multi_h1_tags}}</span>
+          </h6>
+      {% endif %}
+      
+    </div>
+    {% endif %}
+
+    {% if data.nofollow_page or data.noindex_page or data.noindex_nofollow_page or data.follow_noindex_page or data.canonical_points_to_4XX or data.canonical_points_to_5XX or data.canonical_points_to_redirect or data.noncanonical_specified_as_canonical %}
+    <div class="child">
+      <h4>Indexability</h4>
+      {% if data.canonical_points_to_4XX %}
+          <h6>
+          <span><img class="image-error" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/error.png" />
+          Canonical points to 4xx</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.canonical_points_to_4XX}}</span>
+          </h6>
+      {% endif %}
+     
+      {% if data.canonical_points_to_5XX %}
+          <h6>
+          <span><img class="image-error" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/error.png" />
+          Canonical points to 5xx</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.canonical_points_to_5XX}}</span>
+          </h6>
+      {% endif %}
+      
+      {% if data.canonical_points_to_redirect %}
+          <h6>
+          <span><img class="image-error" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/error.png" />
+          Canonical points to redirect</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.canonical_points_to_redirect}}</span>
+          </h6>
+      {% endif %}
+      
+      {% if data.nofollow_page %}
+          <h6>
+          <span><img class="image-warning" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/warning.png" />
+          Nofollow Page</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.nofollow_page}}</span>
+          </h6>
+      {% endif %}
+      
+      {% if data.noindex_page %}
+          <h6>
+          <span><img class="image-warning" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/warning.png" />
+          Noindex page</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.noindex_page}}</span>
+          </h6>
+      {% endif %}
+      
+      {% if data.noncanonical_specified_as_canonical %}
+          <h6>
+          <span><img class="image-warning" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/warning.png" />
+          Non-canonical page specified as canonical one</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.noncanonical_specified_as_canonical}}</span>
+          </h6>
+      {% endif %}
+      
+      {% if data.noindex_nofollow_page %}
+          <h6>
+          <span><img class="image-information" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/information.png" />
+          Noindex and nofollow page</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.noindex_nofollow_page}}</span>
+          </h6>
+      {% endif %}
+      
+      {% if data.follow_noindex_page %}
+          <h6>
+          <span><img class="image-information" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/information.png" />
+          Noindex follow page</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.follow_noindex_page}}</span>
+          </h6>
+      {% endif %}
+        
+    </div>
+    {% endif %}
+
+    {% if data.canonical_URL_has_no_incoming_internal_links or data.HTTPS_page_internal_link_HTTP or data.orphan_page_has_no_incoming_internal_links or data.page_has_links_to_broken or data.page_has_no_outgoing_links or data.page_has_links_to_redirect or data.page_has_nofollow_incoming_internal_links_only or data.redirected_page_has_no_incoming_internal_links or data.HTTP_page_internal_link_HTTPS or data.page_has_nofollow_dofollow_incoming_internals or data.page_has_nofollow_outgoing_internal or data.page_has_only_one_dofollow_incoming %}
+    <div class="child">
+      <h4>Links</h4>
+      {% if data.canonical_URL_has_no_incoming_internal_links %}
+          <h6>
+            <span><img class="image-error" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/error.png" />
+            Canonical URL&nbsp;&nbsp; has no incoming internal links</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.canonical_URL_has_no_incoming_internal_links}}</span>
+          </h6>
+      {% endif %}
+      {% if data.HTTPS_page_internal_link_HTTP %}
+          <h6>
+            <span><img class="image-error" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/error.png" />
+            HTTPS&nbsp;&nbsp; page has internal link to HTTP</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.HTTPS_page_internal_link_HTTP}}</span>
+          </h6>
+      {% endif %}
+      {% if data.orphan_page_has_no_incoming_internal_links %}
+          <h6>
+          <span><img class="image-error" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/error.png" />
+          Orphan page (has no incoming internal links)</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.orphan_page_has_no_incoming_internal_links}}</span>
+          </h6>
+      {% endif %}
+      {% if data.page_has_links_to_broken %}
+          <h6>
+          <span><img class="image-error" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/error.png" />
+          Page has links to broken page</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.page_has_links_to_broken}}</span>
+          </h6>
+      {% endif %}
+      {% if data.page_has_no_outgoing_links %}
+          <h6>
+          <span><img class="image-error" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/error.png" />
+          Page has no outgoing links
+          </span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.page_has_no_outgoing_links}}</span>
+          </h6>
+      {% endif %}
+      {% if data.page_has_links_to_redirect %}
+          <h6>
+          <span><img class="image-warning" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/warning.png" />
+          Page has links to redirect</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.page_has_links_to_redirect}}</span>
+          </h6>
+      {% endif %}
+      {% if data.page_has_nofollow_incoming_internal_links_only %}
+          <h6>
+          <span><img class="image-warning" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/warning.png" />
+          Page has nofollow incoming internal links only</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.page_has_nofollow_incoming_internal_links_only}}</span>
+          </h6>
+      {% endif %}
+      {% if data.redirected_page_has_no_incoming_internal_links %}
+          <h6>
+          <span><img class="image-warning" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/warning.png" />
+          Redirected page has no incoming internal links</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.redirected_page_has_no_incoming_internal_links}}</span>
+          </h6>
+      {% endif %}
+      {% if data.HTTP_page_internal_link_HTTPS %}
+          <h6>
+          <span><img class="image-information" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/information.png" />
+          HTTP&nbsp;&nbsp; page has internal links to HTTPS</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.HTTP_page_internal_link_HTTPS}}</span>
+          </h6>
+      {% endif %}
+      {% if data.page_has_nofollow_dofollow_incoming_internals %}
+          <h6>
+          <span><img class="image-information" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/information.png" />
+          Page has nofollow and dofollow incoming internal links</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.page_has_nofollow_dofollow_incoming_internals}}</span>
+          </h6>
+      {% endif %}
+      {% if data.page_has_nofollow_outgoing_internal %}
+          <h6>
+          <span><img class="image-information" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/information.png" />
+          page has nofollow outgoing internal links</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.page_has_nofollow_outgoing_internal}}</span>
+          </h6>
+      {% endif %}
+      {% if data.page_has_only_one_dofollow_incoming %}
+          <h6>
+          <span><img class="image-information" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/information.png" />
+            Page has only one dofollow incoming internal link</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.page_has_only_one_nofollow_incoming}}</span>
+          </h6>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    {% if data.redirect_302 or data.redirect_3XX or data.redirect_chain or data.redirect_HTTPS_to_HTTP or data.redirect_HTTP_to_HTTPS or data.broken_redirect or data.redirect_chain_too_long or data.redirect_loop %}
+    <div class="child">
+      <h4>Redirects</h4>
+      {% if data.broken_redirect %}
+          <h6>
+          <span><img class="image-error" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/error.png" />
+          Broken redirect</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.broken_redirect}}</span>
+          </h6>
+      {% endif %}
+      {% if data.redirect_chain_too_long %}
+          <h6>
+          <span><img class="image-error" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/error.png" />
+          Redirect chain too long</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.redirect_chain_too_long}}</span>
+          </h6>
+      {% endif %}
+      {% if data.redirect_loop %}
+          <h6>
+          <span><img class="image-error" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/error.png" />
+          Redirect loop</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.redirect_loop}}</span>
+          </h6>
+      {% endif %}
+      {% if data.redirect_302 %}
+        <h6>
+        <span><img class="image-warning" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/warning.png" />
+        302 Redirect</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.redirect_302}}</span>
+        </h6>
+      {% endif %}
+      {% if data.redirect_3XX %}
+        <h6>
+        <span><img class="image-warning" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/warning.png" />
+        3XX&nbsp;&nbsp; Redirect</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.redirect_3XX}}</span>
+        </h6>
+      {% endif %}
+      {% if data.redirect_chain %}
+        <h6>
+        <span><img class="image-warning" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/warning.png" />
+        Redirect chain</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.redirect_chain}}</span>
+        </h6>
+      {% endif %}
+      {% if data.redirect_HTTPS_to_HTTP %}
+        <h6>
+        <span><img class="image-warning" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/warning.png" />
+        HTTPS&nbsp;&nbsp; to HTTP&nbsp;&nbsp; redirect</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.redirect_HTTPS_to_HTTP}}</span>
+        </h6>
+      {% endif %}
+      {% if data.redirect_HTTP_to_HTTPS %}
+        <h6>
+        <span><img class="image-information" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/information.png" />
+        HTTP&nbsp;&nbsp; to HTTPS&nbsp;&nbsp; redirect</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.redirect_HTTP_to_HTTPS}}</span>
+        </h6>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    {% if data.og_URL_not_matching_canonical or data.og_tags_incomplete or data.twitter_card_incomplete or data.og_tags_missing or data.twitter_card_missing %}
+    <div class="child">
+      <h4>Social Tags</h4>
+      {% if data.og_URL_not_matching_canonical %}
+          <h6>
+          <span><img class="image-warning" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/warning.png" />
+          Open Graph URL&nbsp;&nbsp; not matching canonical</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.og_URL_not_matching_canonical}}</span>
+          </h3>
+      {% endif %} 
+      {% if data.og_tags_incomplete %}
+          <h6>
+          <span><img class="image-warning" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/warning.png" />
+          Open Graph tags incomplete</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.og_tags_incomplete}}</span>
+          </h3>
+      {% endif %}
+      {% if data.twitter_card_incomplete %}
+          <h6>
+          <span><img class="image-warning" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/warning.png" />
+          Twitter card incomplete</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.twitter_card_incomplete}}</span>
+          </h3>
+      {% endif %}
+      {% if data.og_tags_missing %}
+          <h6>
+          <span><img class="image-information" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/information.png" />
+          Open Graph tags missing</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.og_tags_missing}}</span>
+          </h3>
+      {% endif %}
+      {% if data.twitter_card_missing %}
+          <h6>
+          <span><img class="image-information" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/information.png" />
+          Twitter card missing</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.twitter_card_missing}}</span>
+          </h3>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    {% if data.HTTPS_page_links_to_HTTP_image or data.image_alt_missing %}
+    <div class="child">
+      <h4>Images</h4>
+      {% if data.HTTPS_page_links_to_HTTP_image %}
+          <h6>
+          <span><img class="image-warning" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/warning.png" />
+          HTTPS&nbsp;&nbsp; page links to HTTP&nbsp;&nbsp; image</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.HTTPS_page_links_to_HTTP_image}}</span>
+          </h6>
+      {% endif %}
+      {% if data.image_alt_missing %}
+          <h6>
+          <span><img class="image-warning" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/warning.png" />
+          Missing alt text</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.image_alt_missing}}</span>
+          </h6>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    {% if data.page_403_in_sitemap or data.page_4XX_in_sitemap or data.page_5XX_in_sitemap or data.page_from_sitemap_timed_out or data.redirect_3XX_in_sitemap or data.double_slash_in_url or data.noindex_page_in_sitemap or data.non_canonical_page_in_sitemap %}
+    <div class="child">
+      <h4>Others</h4>
+      {% if data.redirect_3XX_in_sitemap %}
+          <h6>
+          <span><img class="image-error" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/error.png" />
+          3XX redirect in sitemap</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.redirect_3XX_in_sitemap}}</span>
+          </h6>
+      {% endif %}
+      {% if data.page_403_in_sitemap %}
+          <h6>
+          <span><img class="image-error" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/error.png" />
+          403 page in sitemap</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.page_403_in_sitemap}}</span>
+          </h6>
+      {% endif %}
+      {% if data.page_4XX_in_sitemap %}
+          <h6>
+          <span><img class="image-error" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/error.png" />
+          4XX page in sitemap</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.page_4XX_in_sitemap}}</span>
+          </h6>
+      {% endif %}
+      {% if data.page_5XX_in_sitemap %}
+          <h6>
+          <span><img class="image-error" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/error.png" />
+          5XX page in sitemap</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.page_5XX_in_sitemap}}</span>
+          </h6>
+      {% endif %}
+      {% if data.double_slash_in_url %}
+          <h6>
+          <span><img class="image-error" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/error.png" />
+          Double slash in URL</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.double_slash_in_url}}</span>
+          </h6>
+      {% endif %}
+      {% if data.noindex_page_in_sitemap %}
+          <h6>
+          <span><img class="image-error" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/error.png" />
+          Noindex page in sitemap</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.noindex_page_in_sitemap}}</span>
+          </h6>
+      {% endif %}
+      {% if data.non_canonical_page_in_sitemap %}
+          <h6>
+          <span><img class="image-error" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/error.png" />
+          Non-canonical page in sitemap</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.non_canonical_page_in_sitemap}}</span>
+          </h6>
+      {% endif %}
+      {% if data.page_from_sitemap_timed_out %}
+          <h6>
+          <span><img class="image-error" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/error.png" />
+          Page from sitemap timed out</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.page_from_sitemap_timed_out}}</span>
+          </h6>
+      {% endif %}
+    </div>
+    {% endif %}
+
+  </div>
+    
+    
+
+    <div class="page-footer" style="display: flex; margin: 0px;">
+      <p style="font-size: 12px; font-weight: bold; padding-right: 5px; margin: 0px; ">Note:</p>
+      <p style="font-size: 11.5px; font-style: italic; margin: 0px; ">The detailed technical audit report <span class="domain-name">{{domain}}</span>.xlsx is attached herewith. To find actionable details of the findings, refer to the respective tab sheets e.g., for <span style="color: #FF8A00">“Multiple H1&nbsp;&nbsp; tags”</span>, refer to tab sheet <span style="color: #FF8A00">“Multiple H1&nbsp;&nbsp; Tag”</span>.</p>
+    </div>
+  </div>
+
+    
+          
+</body>
+</html>
