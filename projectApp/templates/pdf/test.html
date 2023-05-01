@@ -1,0 +1,533 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>My Page</title>
+  {% load static %}
+  <style type="text/css">
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap');
+    /* CSS styles */
+    
+.pdf-page {
+  font-family: "Poppins", sans-serif;
+  color: #363642;
+  word-spacing: 5px;
+  font-weight: 400;
+  position: relative;
+  height: 1070px;
+}
+
+.domain-name {
+  font-family: "Roboto", sans-serif;
+  color: #363642;
+}
+
+.page-footer {
+  position: absolute;
+  bottom: 0px;
+}
+
+.header-flex-container {
+  padding-top: 20px;
+}
+
+.header-flex-container p {
+  margin: 0px;
+  padding: 0px;
+}
+
+.header-logo {
+  text-align: end;
+  /* display: flex; */
+  /* justify-content: right; */
+  margin: 0;
+  padding: 0;
+  /* border: 2px solid red; */
+}
+
+.logo-img {
+  width: 250px;
+  height: 140px;
+  /* position: absolute; */
+  top: 0px;
+  right: 0px;
+  margin-top: -48px;
+  margin-right: -28px;
+}
+
+.column {
+  float: left;
+  /* Should be removed. Only for demonstration */
+  /* padding: 10px;  */
+}
+
+.left {
+  width: 60%;
+}
+
+.right {
+  width: 40%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.flex-container {
+  display: flex;
+  background-color: rgb(255, 255, 255);
+}
+
+.flex-container > div {
+  width: 50%;
+  background-color: #EEF0F5;
+  margin: 5px;
+  padding: 7px;
+  padding-left: 12px;
+  font-size: 30px;
+  border-radius: 10px;
+}
+
+.lighthouse-result::before {
+  content: attr(data-value); /* Use the value of the data-value attribute as the content */
+}
+
+.lighthouse-result[data-value^="1"]::before,
+.lighthouse-result[data-value^="1"] * {
+  color: #ff0000;
+}
+
+.lighthouse-result[data-value^="2"]::before,
+.lighthouse-result[data-value^="2"] * {
+  color: #ff9e00;
+}
+
+.lighthouse-result[data-value^="3"]::before,
+.lighthouse-result[data-value^="3"] * {
+  color: #ffd100;
+}
+
+.lighthouse-result[data-value^="4"]::before,
+.lighthouse-result[data-value^="4"] * {
+  color: #ffc100;
+}
+
+.lighthouse-result[data-value^="5"]::before,
+.lighthouse-result[data-value^="5"] * {
+  color: #ffb400;
+}
+
+.lighthouse-result[data-value^="6"]::before,
+.lighthouse-result[data-value^="6"] * {
+  color: #ffa500;
+}
+
+.lighthouse-result[data-value^="7"]::before,
+.lighthouse-result[data-value^="7"] * {
+  color: #bc9b00;
+}
+
+.lighthouse-result[data-value^="8"]::before,
+.lighthouse-result[data-value^="8"] * {
+  color: #719000;
+}
+
+.lighthouse-result[data-value^="9"]::before,
+.lighthouse-result[data-value^="9"] * {
+  color: #008000;
+}
+
+.lighthouse-result[data-value="4"]::before,
+.lighthouse-result[data-value="4"] * {
+  color: #ff0000;
+}
+
+.lighthouse-result[data-value="5"]::before,
+.lighthouse-result[data-value="5"] * {
+  color: #ff0000;
+}
+
+.lighthouse-result[data-value="6"]::before,
+.lighthouse-result[data-value="6"] * {
+  color: #ff0000;
+}
+
+.lighthouse-result[data-value="7"]::before,
+.lighthouse-result[data-value="7"] * {
+  color: #ff0000;
+}
+
+.lighthouse-result[data-value="8"]::before,
+.lighthouse-result[data-value="8"] * {
+  color: #ff0000;
+}
+
+.lighthouse-result[data-value="9"]::before,
+.lighthouse-result[data-value="9"] * {
+  color: #ff0000;
+}
+
+.lighthouse-result[data-value="0"]::before,
+.lighthouse-result[data-value="0"] * {
+  color: #ff0000;
+}
+
+.lighthouse-result[data-value="100"]::before,
+.lighthouse-result[data-value="100"] * {
+  color: #008000;
+}
+
+.parent {
+  /* display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px; */
+  /* display: flex;
+  flex-wrap: wrap; */
+  column-count: 2;
+  column-gap: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+.parent .child:first-child {
+  padding-top: 0px;
+}
+
+.child {
+  box-sizing: border-box;
+  padding-bottom: 10px;
+  width: 100%;
+}
+
+.child h4 {
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: #161718;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-bottom: 5px;
+  margin: 0;
+  border-bottom: 1px solid rgb(247, 247, 247);
+  border-top: 1px solid rgb(226, 225, 225);
+  border-left: 1px solid rgb(226, 225, 225);
+  border-right: 1px solid rgb(226, 225, 225);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.child:nth-child(odd) {
+  clear: both;
+}
+
+.child h6 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 200;
+  word-spacing: normal;
+  padding: 5px 10px;
+  margin: 0;
+  border-left: 1px solid rgb(226, 225, 225);
+  border-right: 1px solid rgb(226, 225, 225);
+}
+
+.child h6:first-child {
+  padding-top: 5px;
+}
+
+.child h6:last-child {
+  border-bottom: 1px solid rgb(226, 225, 225);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding-bottom: 5px;
+}
+
+.child h6:nth-child(odd) {
+  background-color: #fafafa;
+}
+
+.image-warning {
+  height: 12px;
+  width: 12px;
+  margin-right: 3px;
+}
+
+.image-information {
+  height: 12px;
+  width: 12px;
+  margin-right: 3px;
+}
+
+.image-error {
+  height: 12px;
+  width: 12px;
+  margin-right: 3px;
+}
+
+.pdf-badge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  border-radius: 10rem;
+  padding: 0.15rem 0.6rem;
+  color: #0f0f0f;
+}
+
+.pdf-badge-secondary {
+  background-color: #f3f3f3;
+}
+
+.pdf-rounded-pill {
+  border-radius: 50rem;
+}
+
+.page-content .category {
+  display: flex;
+}
+.page-content .category .category-item {
+  align-self: baseline;
+}
+.page-content .category .card-title {
+  font-size: 1.125rem;
+  letter-spacing: 1px;
+}
+.page-content .category .graph {
+  height: 60px;
+  width: 60px;
+}
+
+.CircularProgressbar .CircularProgressbar-text {
+  font-size: 2rem !important;
+  font-weight: 600;
+}
+
+.seo-audit {
+  margin: 0px;
+  padding: 0px;
+  left: 0px;
+}
+.seo-audit .speed {
+  background-color: #fff;
+  margin: 0;
+  border: 1px solid rgb(243, 243, 243);
+}
+.seo-audit .speed .speed-data {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem;
+}
+.seo-audit .speed-boxex {
+  display: flex;
+  width: 100%;
+  border: 1px solid rgb(226, 225, 225);
+  font-size: 12px;
+}
+.seo-audit .speed-boxex .speed-box {
+  height: 3rem;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.seo-audit .speed-boxex .excellent {
+  background-color: #40E0D1;
+  flex: 3 3 0px;
+}
+.seo-audit .speed-boxex .good {
+  background-color: #FFA700;
+  flex: 2 2 0px;
+}
+.seo-audit .speed-boxex .fair {
+  background-color: #FFA17A;
+  flex: 3 3 0px;
+}
+.seo-audit .speed-boxex .poor {
+  background-color: #FF0000;
+  flex: 7 7 0px;
+  align-items: center;
+}
+.seo-audit .speed-marker-boxex {
+  display: flex;
+  width: 100%;
+}
+.seo-audit .speed-marker-boxex .speed-box {
+  flex: 1 1 0px;
+  height: 0.17rem;
+}
+.seo-audit .speed-text-boxex {
+  display: flex;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+.seo-audit .speed-text-boxex .speed-box {
+  flex: 1 1 0px;
+  height: 0.5rem;
+  text-align: center;
+}
+.seo-audit .speed-text-boxex .speed-marker-text-box {
+  flex-grow: 3 !important;
+  word-wrap: normal;
+}
+.seo-audit .speed-text-boxex .speed-marker-text {
+  font-size: 13px;
+}
+.seo-audit .speed-marker {
+  text-align: right;
+}
+.seo-audit .speed-marker::after {
+  content: "";
+  margin: 2px 0px -2px;
+  width: 0px;
+  border-width: 10px 6px 6px;
+  border-style: solid;
+  border-color: rgb(38, 40, 45) transparent transparent;
+  border-image: initial;
+}
+
+.percentage-box p {
+  margin: 0;
+  padding: 0;
+}
+
+/*# sourceMappingURL=PDFFile.css.map */
+
+    </style>
+
+</head>
+<body>
+  <div class="pdf-page">
+    <div class="row header-flex-container">
+      <div class="column left header-title">
+        <p style="font-size: 30px; margin-top: -15px; "><span style="color: #FF8A00; font-weight: bold; padding-right: 10px;">FREE</span><span style="padding-right: 10px;">Technical</span><span style="font-weight: bold; padding-right: 10px; color: #29A744;">Audit</span><span>for</span>
+        <p style="font-size: 16px; letter-spacing: 1px; font-weight: 200;"><span class="domain-name" style="background-color: #F6F6F6; border-radius: 25px; padding: 5px 20px; padding-bottom: 7px; text-align: center">{{domain}}</span></p>
+      </div>
+      <!-- <div class="column right header-logo"> -->
+        <img src="../../static/logo.png" />
+      <!-- </div> -->
+    </div>
+    <div style="margin-top: -20px; margin-bottom: 10px; border-left: 3px solid #FF8A00; column-count: 2;">
+      <p style="font-size: 13px; padding-left: 10px;">Our proprietary technical audit tool crawled and came out with in-depth analysis of the website. A poor score indicates opportunity to improve organic performance of <span class="domain-name">{{domain}}</span>.</p>
+      <p style="font-size: 13px; padding-left: 10px;">The following section presents performance scores on different performance areas.</p>
+    </div>
+    <div class="parent">
+      
+      <div class="child">
+          <h4>Internal Pages</h4>
+            {% if data.count.pages_404 != 0 %} 
+              <h6>
+              <span><img class="image-error" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/error.png" />
+              404 page</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.pages_404}}</span>
+              </h6>
+            {% endif %}
+          
+            {% if data.count.pages_4xx != 0 %} 
+                <h6>
+                <span><img class="image-error" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/error.png" />
+                4XX page</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.pages_404}}</span>
+                </h6>
+              {% endif %}
+              
+            {% if data.count.pages_500 != 0 %}
+                <h6>
+                <span><img class="image-error" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/error.png" />
+                500 page</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.pages_4xx}}</span>
+                </h6>
+              {% endif %}
+              
+            {% if data.count.pages_5xx != 0 %}
+                <h6>
+                <span><img class="image-error" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/error.png" />
+                5XX page</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.pages_5xx}}</span>
+                </h6>
+              {% endif %}
+          
+        </div>
+        
+        
+        <div class="child">
+          <h4>Content</h4>
+          {% if data.count.multi_meta_desc_tags != 0 %}
+            <h6>
+            <span><img class="image-error" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/error.png" />
+            Multiple Meta Description tags</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.multi_meta_desc_tags}}</span>
+            </h6>
+          {% endif %}
+        
+          {% if data.count.multi_title_tags != 0 %}
+              <h6>
+              <span><img class="image-error" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/error.png" />
+              Multiple title tags</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.multi_title_tags}}</span>
+              </h6>
+          {% endif %}
+    
+          {% if data.count.title_missing != 0 %}
+                <h6>
+                <span><img class="image-error" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/error.png" />
+                Title tag missing or empty</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.title_missing}}</span>
+                </h6>
+          {% endif %}
+        
+          {% if data.count.h1_missing != 0 %}
+              <h6>
+              <span><img class="image-warning" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/warning.png" />
+              H1&nbsp;&nbsp; tag missing or empty</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.h1_missing}}</span>
+              </h6>
+          {% endif %}
+     
+          
+        </div>
+        
+        
+        <div class="child">
+          <h4>Indexability</h4>
+          {% if data.count.canonical_points_to_4XX != 0 %}
+              <h6>
+              <span><img class="image-error" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/error.png" />
+              Canonical points to 4xx</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.canonical_points_to_4XX}}</span>
+              </h6>
+          {% endif %}
+         
+          {% if data.count.canonical_points_to_5XX != 0 %}
+              <h6>
+              <span><img class="image-error" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/error.png" />
+              Canonical points to 5xx</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.canonical_points_to_5XX}}</span>
+              </h6>
+          {% endif %}
+          
+          {% if data.count.canonical_points_to_redirect != 0 %}
+              <h6>
+              <span><img class="image-error" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/error.png" />
+              Canonical points to redirect</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.canonical_points_to_redirect}}</span>
+              </h6>
+          {% endif %}
+          
+          {% if data.count.nofollow_page != 0 %}
+              <h6>
+              <span><img class="image-warning" src="http://blogoutreach.com.au/wp-content/uploads/2023/04/warning.png" />
+              Nofollow Page</span><span class="pdf-badge pdf-badge-secondary pdf-rounded-pill ml-2">{{data.count.nofollow_page}}</span>
+              </h6>
+          {% endif %}
+            
+        </div>
+    
+      </div>
+        
+  </div>
+
+  
+  
+    
+          
+</body>
+</html>

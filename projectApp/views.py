@@ -1,3 +1,5 @@
+import datetime
+import os
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
@@ -8,6 +10,11 @@ from django.template.loader import get_template, render_to_string
 from django.http import HttpResponse
 import tempfile
 from django.conf import settings
+from xhtml2pdf import pisa
+
+from django.views.generic import View
+
+from projectApp.utils import render_to_pdf
 
 # from puppeteer_pdf import render_pdf
 
@@ -52,6 +59,79 @@ def contact(request):
     # return a 405 Method Not Allowed response for other HTTP methods
     return JsonResponse({'error': 'Method Not Allowed'}, status=405)
 
+class GeneratePdf(View):
+    def get(self, request, *args, **kwargs):
+        # data = {
+        #      'today': datetime.date.today(), 
+        #      'amount': 39.99,
+        #     'customer_name': 'Cooper Mann',
+        #     'order_id': 1233434,
+        # }
+        data = {'count': {'pages_404': 0,
+         'pages_4xx': 0,
+         'pages_500': 0,
+         'pages_5xx': 0,
+         'timed_out': 0,
+         'h1_missing': 2,
+         'title_long': 0,
+         'title_short': 11,
+         'noindex_page': 7,
+         'redirect_302': 0,
+         'redirect_3XX': 0,
+         'multi_h1_tags': 8,
+         'nofollow_page': 1,
+         'redirect_loop': 0,
+         'title_missing': 0,
+         'meta_desc_long': 0,
+         'redirect_chain': 0,
+         'broken_redirect': 0,
+         'meta_desc_short': 2,
+         'og_tags_missing': 3,
+         'multi_title_tags': 0,
+         'image_alt_missing': 102,
+         'meta_desc_missing': 4,
+         'og_tags_incomplete': 9,
+         'double_slash_in_url': 0,
+         'follow_noindex_page': 7,
+         'page_403_in_sitemap': 0,
+         'page_4XX_in_sitemap': 0,
+         'page_5XX_in_sitemap': 0,
+         'multi_meta_desc_tags': 0,
+         'twitter_card_missing': 3,
+         'noindex_nofollow_page': 1,
+         'redirect_HTTPS_to_HTTP': 0,
+         'redirect_HTTP_to_HTTPS': 0,
+         'canonical_points_to_4XX': 0,
+         'canonical_points_to_5XX': 0,
+         'noindex_page_in_sitemap': 0,
+         'redirect_3XX_in_sitemap': 0,
+         'redirect_chain_too_long': 0,
+         'twitter_card_incomplete': 9,
+         'HTTPS_HTTP_mixed_content': 0,
+         'page_has_links_to_broken': 0,
+         'page_has_links_to_redirect': 0,
+         'page_has_no_outgoing_links': 2,
+         'page_from_sitemap_timed_out': 0,
+         'canonical_points_to_redirect': 0,
+         'HTTPS_page_internal_link_HTTP': 0,
+         'HTTP_page_internal_link_HTTPS': 0,
+         'non_canonical_page_in_sitemap': 0,
+         'og_URL_not_matching_canonical': 0,
+         'HTTPS_page_links_to_HTTP_image': 0,
+         'noncanonical_specified_as_canonical': 0,
+         'page_has_nofollow_outgoing_internal': 0,
+         'page_has_only_one_dofollow_incoming': 0,
+         'orphan_page_has_no_incoming_internal_links': 0,
+         'canonical_URL_has_no_incoming_internal_links': 12,
+         'page_has_nofollow_dofollow_incoming_internals': 0,
+         'page_has_nofollow_incoming_internal_links_only': 0,
+         'redirected_page_has_no_incoming_internal_links': 0}}
+        list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+        context = {'title': 'My PDF', 'domain': 'tistasoft.com', 'data': data, 'timeMarkerInSecond': 3, 'list': list}
+
+        # pdf = render_to_pdf('pdf/invoice.html', data)
+        pdf=render_to_pdf('pdf/test.html', context)
+        return HttpResponse(pdf, content_type='application/pdf')
 
 def generate_pdf(request):
     data = {'count': {'pages_404': 0,
@@ -518,6 +598,7 @@ def generate_pdf(request):
  'redirected_page_has_no_incoming_internal_links': {}}
     list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
     print("1")
+    pdf_file_name = 'audit_report1.pdf'
     # Get the template and context data
     template = get_template('test.html')
     print("2")
@@ -532,7 +613,9 @@ def generate_pdf(request):
     # pdf_file = HTML(string=html, base_url=request.build_absolute_uri()).write_pdf(stylesheets=[settings.STATIC_ROOT + 'test.css'])
 
     # Save the PDF to a file path
-    file_path = 'PDF/file1.pdf'
+    # file_path = f'{pdf_file_name}'
+    project_dir = os.getcwd()
+    file_path = os.path.join(project_dir, pdf_file_name)
     with open(file_path, 'wb') as f:
         f.write(pdf_file)
 
