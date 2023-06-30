@@ -11,5 +11,7 @@ urlpatterns=[
     # path('reports/generate/pdf/', views.get_generated_problems_in_pdf, name='pdf'),
     # path('download-pdf/', views.download_pdf, name='download_pdf'),
     path('api/pdf', GeneratePdf.as_view()),
+
+    path('api/business_listing', views.business_listing),
     
 ]
